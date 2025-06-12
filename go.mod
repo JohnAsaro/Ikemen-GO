@@ -18,7 +18,13 @@ require (
 	golang.org/x/mobile v0.0.0-20221110043201-43a038452099
 )
 
-require gopkg.in/ini.v1 v1.67.0 // indirect
+require (
+	github.com/go-sql-driver/mysql v1.7.0 // indirect
+	github.com/junhsieh/goexamples v0.0.0-20210908032526-acdd3160140b // indirect
+	github.com/mattn/go-sqlite3 v1.14.28 // indirect
+	github.com/tengattack/gluasql v0.0.0-20240325124313-344b155b513c // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
+)
 
 require (
 	//github.com/Eiton/glfont v0.0.0-20241204103952-50dc7762af2b // indirect

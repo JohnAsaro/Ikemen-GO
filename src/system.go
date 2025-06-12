@@ -20,6 +20,8 @@ import (
 	"github.com/gopxl/beep/v2"
 	"github.com/gopxl/beep/v2/speaker"
 	"github.com/ikemen-engine/glfont"
+	_ "github.com/mattn/go-sqlite3"                 // CGO driver
+	sqlite3 "github.com/tengattack/gluasql/sqlite3" // the Loader for sqlite3
 	lua "github.com/yuin/gopher-lua"
 )
 
@@ -398,6 +400,7 @@ func (s *System) init(w, h int32) *lua.LState {
 	l := lua.NewState()
 	l.Options.IncludeGoStackTrace = true
 	l.OpenLibs()
+	l.PreloadModule("sqlite3", sqlite3.Loader) // now require("sqlite3") works in Lua
 	for i := range s.inputRemap {
 		s.inputRemap[i] = i
 	}
