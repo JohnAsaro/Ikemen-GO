@@ -1365,15 +1365,6 @@ loadDebugFont(gameOption('Debug.Font'), gameOption('Debug.FontScale'))
 --; COMMAND LINE QUICK VS
 --;===========================================================
 function main.f_commandLine()
-
-	-- Force-load external interface 
-	package.path = "external/mods/?.lua;external/script/?.lua;" .. package.path
-
-	local ok, err = pcall(require, "external_interface")
-	if not ok then
-		print("[Lua][external_interface] failed to load:", err)
-	end
-
 	if main.t_charDef == nil then
 		main.t_charDef = {}
 	end
