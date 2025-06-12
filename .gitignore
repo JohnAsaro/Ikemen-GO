@@ -29,6 +29,8 @@ data/glyphs.sff
 data/gofx*
 data/kfm/*
 data/mugen1/*
+data/mugen1_big/*
+data/mugenclassic/*
 data/select.def
 data/system.def
 data/system.sff
@@ -59,3 +61,6 @@ bin/*
 
 # Compilation files
 src/*.syso
+
+# Mods 
+external/mods
