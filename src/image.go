@@ -1655,17 +1655,6 @@ func captureScreen() {
 func captureScreenBuffer() ([]uint8, int, int) {
 	width, height := sys.window.GetSize()
 	pixdata := make([]uint8, 4*width*height)
-	img := image.NewNRGBA(image.Rect(0, 0, width, height)) // TODO: Mess with this
 	gfx.ReadPixels(pixdata, width, height)
-	for i := 0; i < 4*width*height; i++ {
-		var x, y, j int
-		x = i % (width * 4)
-		y = i / (width * 4)
-		j = x + (height-1-y)*width*4
-		if i%4 == 3 {
-			pixdata[i] = 255 // Set the alpha value to 255
-		}
-		img.Pix[j] = pixdata[i]
-	}
 	return pixdata, width, height
 }
