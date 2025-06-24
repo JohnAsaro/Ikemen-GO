@@ -311,6 +311,9 @@ type System struct {
 
 	// screenshot deferral
 	isTakingScreenshot bool
+
+	// capture screen buffer deferral
+	isLoggingScreenBuffer bool
 }
 
 // Check if the application is running inside a macOS app bundle
@@ -505,6 +508,10 @@ func (s *System) await(fps int) bool {
 		if s.isTakingScreenshot {
 			defer captureScreen()
 			s.isTakingScreenshot = false
+		}
+		if s.isLoggingScreenBuffer {
+			defer logScreenBuffer()
+			s.isLoggingScreenBuffer = false
 		}
 		// Begin the next frame after events have been processed. Do not clear
 		// the screen if network input is present.

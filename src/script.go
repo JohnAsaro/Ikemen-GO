@@ -2172,6 +2172,12 @@ func systemScriptInit(l *lua.LState) {
 		}
 		return 0
 	})
+	luaRegister(l, "logScreenBuffer", func(*lua.LState) int {
+		if !sys.isLoggingScreenBuffer {
+			sys.isLoggingScreenBuffer = true
+		}
+		return 0
+	})
 	luaRegister(l, "searchFile", func(l *lua.LState) int {
 		var dirs []string
 		tableArg(l, 2).ForEach(func(key, value lua.LValue) {
