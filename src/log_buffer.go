@@ -34,10 +34,11 @@ func logScreenBuffer() {
 	pixdata, width, height := captureScreenBuffer() // Get screen buffer
 
 	// Insert into database
-	insertSQL := `INSERT INTO buffer (width, height, buffer_data) VALUES (?, ?, ?)`
-	_, err = db.Exec(insertSQL, width, height, pixdata)
+	updateSQL := `UPDATE buffer SET width = ?, height = ?, buffer_data = ?, done = 0 
+				WHERE id = (SELECT id FROM buffer WHERE done = -1 ORDER BY id LIMIT 1)`
+	_, err = db.Exec(updateSQL, width, height, pixdata)
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Update failed:", err)
+		return
 	}
-
 }
