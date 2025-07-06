@@ -179,6 +179,7 @@ Debug Options:
 -maxpowermode           Enables auto-refill of Power bars
 -ailevel <level>        Changes game difficulty setting to <level> (1-8)
 -speed <speed>          Changes game speed setting to <speed> (10%%-200%%)
+-fps <frames>           Changes game fps to <frames>
 -stresstest <frameskip> Stability test (AI matches at speed increased by <frameskip>)
 -speedtest              Speed test (match speed x100)`
 				//ShowInfoDialog(text, "I.K.E.M.E.N Command line options")
