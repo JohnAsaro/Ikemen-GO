@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -10,7 +11,8 @@ import (
 func logScreenBuffer() {
 
 	// Create/open database
-	db, err := sql.Open("sqlite3", "external/mods/bridge.db")
+	path := fmt.Sprintf("external/mods/bridges/bridge_%s.db", sys.instanceID)
+	db, err := sql.Open("sqlite3", path)
 	if err != nil {
 		log.Fatal(err)
 	}

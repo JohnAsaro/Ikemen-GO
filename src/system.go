@@ -248,6 +248,7 @@ type System struct {
 	keyString               string
 	timerCount              []int32
 	cmdFlags                map[string]string
+	instanceID				string
 	//FLAC_FrameWait          int
 
 	// Localcoord sceenpack

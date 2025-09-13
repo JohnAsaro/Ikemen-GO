@@ -180,6 +180,7 @@ Debug Options:
 -ailevel <level>        Changes game difficulty setting to <level> (1-8)
 -speed <speed>          Changes game speed setting to <speed> (10%%-200%%)
 -fps <frames>           Changes game fps to <frames>
+-instance_id <id>       Sets this instance's ID to <id> (default: 1A) used for external AI training
 -stresstest <frameskip> Stability test (AI matches at speed increased by <frameskip>)
 -speedtest              Speed test (match speed x100)`
 				//ShowInfoDialog(text, "I.K.E.M.E.N Command line options")

@@ -2337,6 +2337,14 @@ func systemScriptInit(l *lua.LState) {
 		sys.home = tn - 1
 		return 0
 	})
+	luaRegister(l, "setInstanceID", func(*lua.LState) int {
+		sys.instanceID = strArg(l, 1)
+		return 0
+	})
+	luaRegister(l, "getInstanceID", func(*lua.LState) int {
+		l.Push(lua.LString(sys.instanceID))
+		return 1
+	})
 	luaRegister(l, "setKeyConfig", func(l *lua.LState) int {
 		pn := int(numArg(l, 1))
 		joy := int(numArg(l, 2))
